@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React, { useState } from "react";
+import "./App.css";
+import ExpressionSolver from "./components/ExpressionSolver";
+import SolverSelector from "./components/SolverSelector";
 
 function App() {
+  const [solver, setSolver] = useState("infix");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SolverSelector onSolverSelect={setSolver} />
+      <ExpressionSolver solver={solver} />
     </div>
   );
 }
